@@ -13,7 +13,15 @@ const getAllTask = async (req, res) => {
   res.send(tasks);
 };
 
+// get a single task
+const getSingleTask = async (req, res) => {
+    const id = req.params.id
+    const singleTask = await Task.findById({"_id": id})
+    res.send(singleTask)
+}
+
 module.exports = {
   createTask,
   getAllTask,
+  getSingleTask
 };
