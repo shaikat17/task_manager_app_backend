@@ -20,8 +20,17 @@ const getSingleTask = async (req, res) => {
     res.send(singleTask)
 }
 
+// delete a task
+const deleteATask = async (req, res) => {
+    const id = req.params.id
+    const deletedTask = await Task.findByIdAndDelete({"_id" : id})
+
+    res.send(deletedTask)
+}
+
 module.exports = {
   createTask,
   getAllTask,
-  getSingleTask
+  getSingleTask,
+  deleteATask
 };

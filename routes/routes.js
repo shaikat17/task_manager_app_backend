@@ -1,6 +1,6 @@
 const express = require("express");
 const Task = require("../models/taskModel");
-const { createTask, getAllTask, getSingleTask } = require("../controllers/taskController");
+const { createTask, getAllTask, getSingleTask, deleteATask } = require("../controllers/taskController");
 
 const router = express.Router();
 
@@ -12,5 +12,8 @@ router.get("/api/tasks", getAllTask);
 
 // get a single task
 router.get('/api/task/:id', getSingleTask)
+
+// delete a task
+router.delete('/api/task/:id', deleteATask)
 
 module.exports = router;
