@@ -12,8 +12,9 @@ app.use(express.json())
 
 connectDB()
 
-app.get("/", (req, res) => {
-  res.send("hello");
+app.get("/api/tasks", async (req, res) => {
+  const tasks = await Task.find({})
+  res.send(tasks)
 });
 
 app.post('/api/tasks' , async (req, res) => {
