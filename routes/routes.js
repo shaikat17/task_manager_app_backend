@@ -1,19 +1,25 @@
 const express = require("express");
 const Task = require("../models/taskModel");
-const { createTask, getAllTask, getSingleTask, deleteATask } = require("../controllers/taskController");
+const { createTask, getAllTask, getSingleTask, deleteATask, updateTask } = require("../controllers/taskController");
 
 const router = express.Router();
 
+router.route('/tasks').get(getAllTask).post(createTask)
+router.route('/task/:id').get(getSingleTask).delete(deleteATask).put(updateTask)
+
 // create a new task
-router.post("/api/tasks", createTask);
+// router.post("/tasks", createTask);
 
 // get all task data
-router.get("/api/tasks", getAllTask);
+// router.get("/tasks", getAllTask);
 
 // get a single task
-router.get('/api/task/:id', getSingleTask)
+// router.get('/task/:id', getSingleTask)
 
 // delete a task
-router.delete('/api/task/:id', deleteATask)
+// router.delete('/task/:id', deleteATask)
+
+// update a task
+// router.put('/task/:id', updateTask)
 
 module.exports = router;

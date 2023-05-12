@@ -28,9 +28,21 @@ const deleteATask = async (req, res) => {
     res.send(deletedTask)
 }
 
+// update a task
+const updateTask = async (req, res) => {
+    const id = req.params.id
+    const data = req.body
+
+    // console.log(id)
+    // console.log(data)
+    const updatedTask = await Task.findByIdAndUpdate({"_id": id}, data)
+    res.send('Updated')
+}
+
 module.exports = {
   createTask,
   getAllTask,
   getSingleTask,
-  deleteATask
+  deleteATask,
+  updateTask
 };
