@@ -15,6 +15,10 @@ app.use(express.json());
 app.use("/api", routes);
 // app.use(routes);
 
+app.get("/", (req, res) => {
+  res.send("Welcome");
+});
+
 connectDB();
 
 app.listen(port, () => {
