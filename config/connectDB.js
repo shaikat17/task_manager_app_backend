@@ -1,6 +1,7 @@
+require('dotenv').config()
 const mongoose = require("mongoose");
 
-const uri = "mongodb://127.0.0.1:27017/task-manager";
+const uri = `mongodb+srv://${process.env.db_user}:${process.env.db_pass}@cluster0.l30hzpi.mongodb.net/?retryWrites=true&w=majority/task-manager`;
 
 const connectDB = async () => {
   try {
